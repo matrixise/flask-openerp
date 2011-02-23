@@ -26,7 +26,7 @@ setup(
     ],
     classifiers=[
         'Intended Audience :: Developers',
-        'License :: OSI Approved :: GPLv3',
+        'License :: OSI Approved :: LGPLv2',
         'Operating System :: OS Independent',
         'Programming Language :: Python',
         'Topic :: Software Development :: Libraries :: Python Modules',
