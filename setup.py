@@ -11,7 +11,7 @@ from setuptools import setup
 setup(
     name='Flask-OpenERP',
     version='0.1',
-    url='http://www.wirtel.be/flask-openerp/',
+    url='http://www.wirtel.be/projects/flask-openerp/',
     license='LGPLv2',
     author='Stephane Wirtel',
     author_email='stephane@wirtel.be',
