@@ -16,8 +16,9 @@ from .rpc import NetRPCConnector
 from .rpc import XmlRPCConnector
 from .rpc import Connection
 from .rpc import Object
+from .rpc import Common
 
-__all__ = ['OpenERP', 'get_object', 'get_data_from_record']
+__all__ = ['OpenERP', 'get_object', 'get_data_from_record', 'login']
 
 def get_object(object_name):
     context = {
@@ -131,5 +132,8 @@ class OpenERP(object):
                                         app.config['OPENERP_PORT'],
                                         app.config['OPENERP_DATABASE'])) or None
         )
+
+    def login(self, username, password):
+        return Common(self.connector).login(self.app.config['OPENERP_DATABASE'], username, password)
 
 
