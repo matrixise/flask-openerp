@@ -8,13 +8,14 @@
 
 """
 from flask import Flask
-from flaskext.openerp import OpenERP
+from flask import g
+from flaskext.openerp import OpenERP, Object
 
 class DefaultConfig(object):
     OPENERP_PROTOCOL = 'netrpc'
     OPENERP_HOSTNAME = 'localhost'
     OPENERP_DATABASE = 'openerp'
-    OPENERP_DEFAULT_USERNAME = 'admin'
+    OPENERP_DEFAULT_USER = 'admin'
     OPENERP_DEFAULT_PASSWORD = 'admin'
     OPENERP_PORT = 8070
 
