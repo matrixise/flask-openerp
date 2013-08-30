@@ -4,7 +4,7 @@
     ~~~~~~~
 
     :copyright: (c) 2011 - Stephane Wirtel <stephane@wirtel.be>
-    :license: LGPLv2
+    :license: BSD License
 
 """
 from flask import Flask

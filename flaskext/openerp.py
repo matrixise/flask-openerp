@@ -3,7 +3,7 @@
     openerp.py
     ~~~~~~~~~~
     :copyright: (c) 2010-2011 Stephane Wirtel <stephane@wirtel.be>
-    :license: LGPLv2
+    :license: BSD
 """
 from __future__ import absolute_import
 
@@ -32,28 +32,28 @@ def get_data_from_record(object_name, record_ids, fields=None):
 
     proxy = get_object(object_name)
     records = proxy.read(record_ids, fields)
-    
+
     if records == False:
         abort(404)
-        
+
     return records
 
 class OpenERP(object):
     """
     This class is used to interact with an OpenERP Server to one or more Flask
     applications.
-    
+
     There are two usage modes with work very similar. One is binding
     the instance to a very specific Flask application::
 
         app = Flask(__name__)
         openerp = OpenERP(app)
-        
+
     The second possibility is to create the object once and configure
-    the application later to support it::        
-    
+    the application later to support it::
+
         openerp = OpenERP()
-        
+
         def create_ap():
             app = Flask(__name__)
             openerp.init_app(app)
