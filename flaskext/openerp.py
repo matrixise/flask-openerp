@@ -17,6 +17,7 @@ from .rpc import XmlRPCConnector
 from .rpc import Connection
 from .rpc import Object
 from .rpc import Common
+from .rpc import Workflow
 
 __all__ = ['OpenERP', 'get_object', 'get_data_from_record', 'login']
 
