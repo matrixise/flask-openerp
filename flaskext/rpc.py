@@ -250,6 +250,46 @@ class Connection(object):
  
         return "Connection: %s" % url
 
+class Workflow(object):
+    """
+    Interact with OpenERP workflows
+    """
+    __logger = logging.getLogger('workflow')
+
+    def __init__(self, connection, context=None):
+        self.connection = connection
+        self.context = context
+    
+    def __add_context(self, arguments, context=None):
+        if context is None:
+            context = {}
+
+        if self.context is not None:
+            context.update(self.context)
+
+        arguments.append(context)
+        return arguments
+    
+    def __send__(self, signal, model, *args):
+        self.__logger.debug('signal: %r', signal)
+        self.__logger.debug('model: %r', model)
+        self.__logger.debug('args: %r', args)
+        result = self.connection.connector.send('object', 'exec_workflow',
+                                                self.connection.database,
+                                                self.connection.user_id,
+                                                self.connection.password,
+                                                model,
+                                                signal,
+                                                *args)
+        self.__logger.debug('result: %r', result)
+        return result
+        
+    def execute_wkf(self, signal, model, obj_id, context=None):
+        arguments = [obj_id]
+        arguments = self.__add_context(arguments, context)
+        return self.__send__(signal, model, *arguments)
+
+
 class Object(object):
     """
     TODO: Document this class
