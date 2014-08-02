@@ -11,7 +11,7 @@ from setuptools import setup
 
 setup(
     name='Flask-OpenERP',
-    version='0.3',
+    version='0.3.1',
     url='https://github.com/matrixise/flask-openerp/',
     license='BSD',
     author='Stephane Wirtel',
